@@ -1,4 +1,4 @@
-Random response generator.
+# Random response generator.
 Exposes 3 endpoints to test various responses:
 
 * `/ok`: always returns a 200 status code with body 'ok'
@@ -11,3 +11,8 @@ Exposes 3 endpoints to test various responses:
 * `mkvirtualenv idt-webhook-test`
 * `pip install -r requirements.txt`
 * `python app.py`
+
+# Deploy
+
+This repository is automatically deployed to
+http://idt-webhook-test.herokuapp.com/ when new commits are pushed to `master`.
