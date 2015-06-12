@@ -37,7 +37,7 @@ def fail(code=None):
 @app.route('/random', methods=['GET', 'POST'])
 def random_response():
     if random.random() > 0.9:
-        return random()
+        return random_response()
     else:
         return ok()
 
