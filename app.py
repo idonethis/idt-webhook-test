@@ -8,12 +8,18 @@ app = Flask(__name__)
 
 @app.before_request
 def log_request():
-    print "=== HEADERS ==="
-    print request.headers
-    print "=== VALUES ==="
-    print request.values
-    print "=== BODY ==="
-    print request.data
+    output = []
+    # can contain partial names
+    interesting_header_names = [
+        "X-Idonethis",
+        "X-Request-Id",
+    ]
+    for header, value in request.headers.items():
+        for interesting_header_name in interesting_header_names:
+            if interesting_header_name in header:
+                output.append("{}:{}".format(header, value))
+    output.append("body: {}".format(request.data))
+    print ", ".join(output)
 
 
 @app.route('/')
